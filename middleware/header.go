@@ -4,7 +4,7 @@ import (
 	"net/http"
 )
 
-func Header(next http.Handler) http.Handler {
+func Headers(next http.Handler) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		// Protects from MimeType Sniffing
 		w.Header().Set("X-Content-Type-Options", "nosniff")

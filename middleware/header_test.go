@@ -10,7 +10,7 @@ import (
 
 func TestHeader(t *testing.T) {
 	e := chi.NewRouter()
-	e.Use(Header)
+	e.Use(Headers)
 	e.Get("/ping", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Hello World"))
 	})
