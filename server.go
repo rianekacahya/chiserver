@@ -49,8 +49,7 @@ func InitServer() {
 
 func StartServer(ctx context.Context) {
 	srv := &http.Server{
-		Addr: fmt.Sprintf(":%s", "8081"),
-		//Addr: fmt.Sprintf(":%s", config.GetChiServerPort()),
+		Addr: fmt.Sprintf(":%s", config.GetChiServerPort()),
 		Handler: GetServer(),
 		ReadTimeout:  time.Duration(config.GetHTTPServerReadTimeout()) * time.Second,
 		WriteTimeout: time.Duration(config.GetHTTPServerWriteTimeout()) * time.Second,
