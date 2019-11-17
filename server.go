@@ -37,6 +37,7 @@ func InitServer() {
 	GetServer().Use(custom_middleware.CORS)
 	GetServer().Use(custom_middleware.Recovery)
 	GetServer().Use(custom_middleware.Headers)
+	GetServer().Use(custom_middleware.Logger)
 
 	// healthCheck endpoint
 	GetServer().Get("/infrastructure/healthcheck", func(w http.ResponseWriter, r *http.Request) {
