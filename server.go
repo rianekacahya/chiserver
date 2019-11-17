@@ -35,6 +35,7 @@ func InitServer() {
 	// init default middleware
 	GetServer().Use(middleware.Recoverer)
 	GetServer().Use(custom_middleware.CORS)
+	GetServer().Use(custom_middleware.Recovery)
 	GetServer().Use(custom_middleware.Headers)
 
 	// healthCheck endpoint
@@ -48,7 +49,8 @@ func InitServer() {
 
 func StartServer(ctx context.Context) {
 	srv := &http.Server{
-		Addr: fmt.Sprintf(":%s", config.GetChiServerPort()),
+		Addr: fmt.Sprintf(":%s", "8081"),
+		//Addr: fmt.Sprintf(":%s", config.GetChiServerPort()),
 		Handler: GetServer(),
 		ReadTimeout:  time.Duration(config.GetHTTPServerReadTimeout()) * time.Second,
 		WriteTimeout: time.Duration(config.GetHTTPServerWriteTimeout()) * time.Second,
